@@ -6,7 +6,7 @@ const weatherData = (address, callback) =>{
     const url = constants.openWeatherMap.BASE_URL + encodeURIComponent(address) + '&appid=' + constants.openWeatherMap.SECRET_KEY;
     
     request({url, json:true}, (error, {body}) =>{
-        //console.log(body);
+        
         if(error) {
             callback("Can't fetch data from open weather map API ", undefined);
         }else if(!body.main || !body.main.temp || !body.name || !body.weather){
@@ -19,7 +19,7 @@ const weatherData = (address, callback) =>{
             });
         }
     });
-    //callback(true);
+    
 };
 
 module.exports = weatherData;

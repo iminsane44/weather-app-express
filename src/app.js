@@ -23,32 +23,32 @@ hbs.registerPartials(partialsPath);
 app.use(express.static(publicStaticDirPath));
 
 app.get('', (req, res) => {
-    //res.send('Hi this is a weather app');
+    
     res.render('index', {
         title: "Weather App"
     });
 });
 
-//localhost:5000/weather?address=manila
+
 app.get('/weather', (req, res) => {
-    //res.send('This is weather endpoint.');
+    
     const address = req.query.address;
     if(!address){
         return res.send({
-            error: "You must enter address  in search text box."
+            error: "You must enter valid country/city in search text box."
 
         });
 
     }
 
     weatherData(address, (error, {temperature, description, cityName} = { }) =>{
-        //console.log(result);
+        
         if(error){
             return res.send({
                 error
             });
         }
-        console.log(temperature, description, cityName);
+        
         res.send({
             temperature,
             description,
@@ -59,7 +59,7 @@ app.get('/weather', (req, res) => {
 });
 
 app.get('*', (req, res) => {
-    //res.send('Page not Found.')
+    
     res.render('404', {
         title: "Page not found"
     });

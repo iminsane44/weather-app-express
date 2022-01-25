@@ -1,7 +1,3 @@
-//console.log('hello');
-
-//const { response } = require("express");
-
 var fetchWeather = '/weather';
 
 const weatherForm = document.querySelector('form');
