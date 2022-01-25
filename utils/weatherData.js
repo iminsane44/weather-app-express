@@ -1,7 +1,7 @@
 const request = require('request');
 const constants = require('../config');
 
-//callback
+
 const weatherData = (address, callback) =>{
     const url = constants.openWeatherMap.BASE_URL + encodeURIComponent(address) + '&appid=' + constants.openWeatherMap.SECRET_KEY;
     
